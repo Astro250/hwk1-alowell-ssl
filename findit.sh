@@ -11,4 +11,14 @@
 #
 
 dir=$1
+if [ ! -d $1 ]; then 
+   echo "directory $1 does not exist"
+   exit
+fi
+
+for i in $( ls $1/*.fits ); do
+   if [ ! -f "${i/fits/cat}" ]; then
+      echo $i
+   fi  
+done
 
